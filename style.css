@@ -82,6 +82,37 @@ div.newlogin
 {
     background-color: rosybrown;
     width: 300px;
-    height: 250px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 30px 30px;
 }
-
+.newlogin input[type="text"],input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: black;
+    font-size: 16px;
+}
+.newlogin input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background:black;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.newlogin input[type="submit"]:hover
+{
+    cursor: pointer;
+    background:rgb(255, 47, 82);
+    color: #000000;
+}
