@@ -45,19 +45,7 @@
              <button type="submit" class="searchbar__button" >
                <i class="fa fa-search"></i>
              </button>
-         </div>
-
-         <p class="filterBy1"> Filter By: </p>  
-         <select class="filterBy2">  
-<option value = "Theory"> Theory Notes   
-</option>  
-<option value = "Question Paper"> Question Papers  
-</option>  
-<option value = "Semester"> Semester 
-</option>  
-<option value = "Uploaded Time"> Uploaded Time 
-</option>  
-</select>  
+         </div> 
      </form>
 <!--<img src="backgroumd.jpg" width=1200 height=600 align="right" hspace=3>  -->
 
@@ -84,9 +72,16 @@
    </tbody>
    </tr>
    </table>
-
-
-
+   
+   <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Filter By:</button>
+      <div id="myDropdown" class="dropdown-content">
+         <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+         <a href="#year">Year</a>
+         <a href="#semester">Semester</a>
+         <a href="#dept">Department</a>
+      </div>
+   </div>
       <script>
          $('.btn').click(function(){
            $(this).toggleClass("click");
@@ -103,6 +98,27 @@
            $('nav ul li').click(function(){
              $(this).addClass("active").siblings().removeClass("active");
            });
+         
+         /* JS code for filter */
+      function myFunction() {
+         document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      function filterFunction() {
+         var input, filter, ul, li, a, i;
+         input = document.getElementById("myInput");
+         filter = input.value.toUpperCase();
+         div = document.getElementById("myDropdown");
+         a = div.getElementsByTagName("a");
+         for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+               a[i].style.display = "";
+            } else {
+               a[i].style.display = "none";
+            }
+         }
+      }
       </script>
    </body>
 </html>
