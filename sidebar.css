@@ -74,8 +74,8 @@ nav ul li a{
 }
 nav ul li.active a{
   color: white;
-  background: #D5B3C3;   //dull pink
-  border-left-color: #ad33ff;  //purple
+  background: #D5B3C3;
+  border-left-color: #ad33ff;
 }
 nav ul li a:hover{
   background: #1e1e1e;
@@ -101,12 +101,12 @@ nav ul ul li a{
 }
 nav ul li.active ul li a{
   color: white;
-  background: #D5B3C3;            //////////////////
+  background: #D5B3C3;          
   border-left-color: transparent;
 }
 nav ul ul li a:hover{
   color: #ad33ff;
-  background: #1e1e1e;   //////////////////2
+  background: #1e1e1e;  
 }
 nav ul li a span{
   position: absolute;

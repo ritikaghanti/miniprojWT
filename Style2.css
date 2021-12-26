@@ -1,9 +1,9 @@
 .searchbar {
     width: 30%;
-    display: flex;
-    align:Center;
+    /* display: flex; */
+    text-align:Center;
     margin-left: 650px;
-    postion:absolute;
+    position:absolute;
     padding: 30px;
     
 }
@@ -76,7 +76,8 @@ table.paleBlueRows {
   height: 200px;
   text-align: center;
   border-collapse: collapse;
-  margin-right:10px;
+  margin-top: 50px;
+  margin-right:0px;
 }
 
 table.paleBlueRows td, table.paleBlueRows th {

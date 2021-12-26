@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="s_style.css">
-    <script src="https://kit.fontawesome.com/b99e6756e.js"></script>
+    <!-- <script src="https://kit.fontawesome.com/b99e6756e.js"></script> -->
 </head>
 
 <body style="background-image: url(back2.jpg);">
-    <form action="">
+    <a style="text-align: right;" href="Dashboard.php">Dashboard</a>
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
         <div class="wrapper">
             <div class="left" style="background-image: url(blue.jpg);"></div>
             <div class="right">
@@ -19,23 +20,27 @@
                     <div class="info_data">
                         <div class="data">
                             <p>Title:</p>
-                            <input class="form_field" placeholder="Title of the document" required type="text" id="title" style="width: 280px;">
+                            <input class="form_field" placeholder="Title of the document" required type="text" name="title" style="width: 280px;">
                             <br><br>                          
                             <p>Description:</p>
-                            <input class="form_field" placeholder="Eg. HTML notes includes core html programs." required type="text" id="year" style="width: 280px;">
+                            <input class="form_field" placeholder="Eg. HTML notes includes core html programs." required type="text" name="description" style="width: 280px;">
                             <br><br>
                             <p>Year:</p>
-                            <input class="form_field" placeholder="Eg. Third Year " required type="text" id="year" style="width: 280px;">
+                            <input class="form_field" placeholder="Eg. Third Year " required type="text" name="year" style="width: 280px;">
                             <br><br>
                             <p>Category:</p>
-                            <input class="form_field" placeholder="Eg. " required type="text" id="year" style="width: 280px;">
+                            <select name="check">
+                                <option value='exam'>Exam</option>
+                                <option value='year'>Year</option>
+                                <option value='department'>Department</option>
+                            <input class="form_field" placeholder="Eg. " required type="text" name="category" style="width: 280px;">
                             <br><br>
                             <p>Select a file*</p><br>
                             <label for="file-upload" class="custom-file-upload">
                                 <input type="file" id="file-upload" style="color: white;">Choose file
                             </label>
-                            <a href="#" style="color: #5a1fe4;background-color: #83d0f3;background-size: 10%; text-align:left; margin-bottom: 0px;"> Upload </a>
-
+                            <input type="submit" name="submit"> 
+                           
                         <div class="back"><a href="Dashboard.html" style="color:#3897f9; ; text-align:right;">Back</a></div>
                         </div>                                                
                     </div>
