@@ -11,7 +11,8 @@
 </head>
 
 <body style="background-image: url(back2.jpg);">
-    <form action="">
+    <form action="account.php" method="POST" enctype="multipart/form-data">
+
         <div class="wrapper">
             <div class="left">
                 <img src=" loginicon.png" alt="profile-pic">
@@ -19,11 +20,14 @@
                     <input type="file" id="file-upload">Upload
                 </label>
 
-                <input class="form_field" placeholder="Name" required type="text" id="name">
-                <label for="name" class="form_label for-left">Name</label>
-                <input class="form_field" placeholder="Info" required type="text" id="info">
-                <label for="info" class="form_label for-left">Info</label>
-                <a href="#">Save info</a>
+                <input class="form_field" placeholder="Name" required type="text" id="fname">
+                <label for="fname" class="form_label for-left">Name</label>
+
+                <input class="form_field" placeholder="Name" required type="text" id="dept">
+                <label for="dept" class="form_label for-left">Department</label>
+
+                <input type="submit" name="Save info">
+                <!-- <a href="uploadsuccess.html">Save info</a> -->
             </div>
             <div class="right">
                 <div class="info">
@@ -33,11 +37,17 @@
 
                             <input class="form_field" placeholder="Name" required type="email" id="email">
                             <label for="email" class="form_label">Email</label>
+
+                            <input class="form_field" placeholder="Name" required type="text" id="sem">
+                            <label for="sem" class="form_label">Semester</label>
                         </div>
+                        
                         <div class="data">
 
                             <input class="form_field" placeholder="Name" required type="text" id="year">
                             <label for="year" class="form_label">Year</label>
+
+                            
                         </div>
                     </div>
                 </div>

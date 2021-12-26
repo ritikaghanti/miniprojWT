@@ -46,22 +46,22 @@ $result=mysqli_query($conn,$query);
                <span class="fas fa-caret-down second"></span>
                </a>
                <ul class="serv-show">
-                  <li><a href="#">My Profile</a></li>
-                  <li><a href="#">Edit Profile</a></li>
+                  <li><a href="index.html">My Profile</a></li>
+                  <li><a href="edit.html">Edit Profile</a></li>
                </ul>
             </li>
             <li><a href="#">Log Out</a></li>
          </ul>
       </nav>
       
-      <form action="./" method="get">
+      <!-- <form action="./" method="get">
          <div class="searchbar">
              <input type="text" class="searchbar__input" name="q" placeholder="Search Notes">
              <button type="submit" class="searchbar__button" >
                <i class="fa fa-search"></i>
              </button>
          </div> 
-     </form>
+     </form> -->
 <!--<img src="backgroumd.jpg" width=1200 height=600 align="right" hspace=3>  -->
 
 <table class="paleBlueRows" align="right">
