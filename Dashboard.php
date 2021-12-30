@@ -29,7 +29,7 @@ $result=mysqli_query($conn,$query);
       </div>
       <nav class="sidebar">
          <div class="text">
-            Dashboard
+            <a href="Dashboard.html" style="color: rgb(96, 100, 100); text-decoration: none;">Dashboard</a>
          </div>
          <ul>
             <li>
