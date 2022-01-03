@@ -6,11 +6,13 @@ $localhost = "localhost"; #localhost
 $dbusername = "root"; #username of phpmyadmin
 $dbpassword = "";  #password of phpmyadmin
 $dbname = "test";  #database name
- 
+
+session_start();
 #connection string
 $conn = mysqli_connect($localhost,$dbusername,$dbpassword,$dbname);
 $query="select * from student"; 
 $result=mysqli_query($conn,$query); 
+$user=$_SESSION['username'];
 
 ?>
 <!DOCTYPE html>
@@ -29,7 +31,9 @@ $result=mysqli_query($conn,$query);
       </div>
       <nav class="sidebar">
          <div class="text">
-            Dashboard
+            <h6>Welcome,<?php echo $user?> </h6>
+            <a href="Dashboard.php">Dashboard</a>
+            <!-- Dashboard -->
          </div>
          <ul>
             <li>
@@ -37,7 +41,7 @@ $result=mysqli_query($conn,$query);
                <span class="fas fa-caret-down first"></span>
                </a>
                <ul class="feat-show">
-                  <li><a href="#">View All Notes</a></li>
+                  <li><a href="Dashboard.php">View All Notes</a></li>
                   <li><a href="s_Upload.html">Upload Notes</a></li>
                </ul>
             </li>
@@ -50,7 +54,7 @@ $result=mysqli_query($conn,$query);
                   <li><a href="edit.html">Edit Profile</a></li>
                </ul>
             </li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="main.html">Log Out</a></li>
          </ul>
       </nav>
       
@@ -99,12 +103,8 @@ $result=mysqli_query($conn,$query);
             <td><?php echo $row["description"] ?></td>
             <!-- <td><?php echo "uploaded" ?></td> -->
             <td><?php echo $row["year"] ?></td>
-            <!-- <td><a download="<?php echo $row["file"] ?>" href=uploads/ <?php echo $row["file"] ?>"><?php echo $row["file"]?> </a></td> -->
+            <td><a download="<?php echo $row["file"] ?>" href=uploads/ <?php echo $row["file"] ?>"><?php echo $row["file"]?> </a></td>
             
-            <td><a href="<?php echo $row["file"]; ?>">Download </a></td>
-
-
-
 
        <?php  
       }
@@ -122,7 +122,7 @@ $result=mysqli_query($conn,$query);
    <div class="dropdown">
       <button onclick="myFunction()" class="dropbtn">Filter By:</button>
       <div id="myDropdown" class="dropdown-content">
-         <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+         <!-- <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"> -->
          <a href="#year">Year</a>
          <a href="#semester">Semester</a>
          <a href="#dept">Department</a>

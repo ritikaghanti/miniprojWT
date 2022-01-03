@@ -14,7 +14,10 @@ if(mysqli_num_rows($result)==1)
 {
     session_start();
     $_SESSION['test']='true';
-    header('location:homepage.html'); //Will have to connect to Savi's part
+    $_SESSION['username']=$username;
+    //echo "Welcome,".$_SESSION['username'];
+    header('location:Dashboard.php');
+    // header('location:Homepage.html'); //Will have to connect to Savi's part
     echo'successful';
 }
 else{echo'wrong username or password';}

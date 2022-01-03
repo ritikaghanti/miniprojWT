@@ -19,6 +19,7 @@ if($conn->connect_error){
     $stmt->bind_param("sss",$name,$username,$password);
     $stmt->execute();
     echo"registration successful";
+    header('location:main.html');
     $stmt->close();
     $conn->close();
 }

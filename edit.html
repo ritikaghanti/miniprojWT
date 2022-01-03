@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="astyle.css">
-    <script src="https://kit.fontawesome.com/b99e6756e.js"></script>
+    <!-- <script src="https://kit.fontawesome.com/b99e6756e.js"></script> -->
     <title>profile-display</title>
 </head>
 
@@ -15,18 +15,18 @@
 
         <div class="wrapper">
             <div class="left">
-                <img src=" loginicon.png" alt="profile-pic">
+                <!-- <img src=" loginicon.png" alt="profile-pic">
                 <label for="file-upload" class="custom-file-upload">
                     <input type="file" id="file-upload">Upload
-                </label>
+                </label> -->
 
-                <input class="form_field" placeholder="Name" required type="text" id="fname">
+                <input class="form_field" placeholder="Name" required type="text" name="fname">
                 <label for="fname" class="form_label for-left">Name</label>
 
-                <input class="form_field" placeholder="Name" required type="text" id="dept">
+                <input class="form_field" placeholder="Name" required type="text" name="dept">
                 <label for="dept" class="form_label for-left">Department</label>
 
-                <input type="submit" name="Save info">
+                <input type="submit" name="submit">
                 <!-- <a href="uploadsuccess.html">Save info</a> -->
             </div>
             <div class="right">
@@ -35,16 +35,16 @@
                     <div class="info_data">
                         <div class="data">
 
-                            <input class="form_field" placeholder="Name" required type="email" id="email">
+                            <input class="form_field" placeholder="Name" required type="email" name="email">
                             <label for="email" class="form_label">Email</label>
 
-                            <input class="form_field" placeholder="Name" required type="text" id="sem">
+                            <input class="form_field" placeholder="Name" required type="text" name="sem">
                             <label for="sem" class="form_label">Semester</label>
                         </div>
                         
                         <div class="data">
 
-                            <input class="form_field" placeholder="Name" required type="text" id="year">
+                            <input class="form_field" placeholder="Name" required type="text" name="year">
                             <label for="year" class="form_label">Year</label>
 
                             
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div>
-                    <a href="index.html">Back</a>
+                    <a href="Dashboard.php">Back</a>
                 </div>
             </div>
         </div>
