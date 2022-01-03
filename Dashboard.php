@@ -32,8 +32,7 @@ $user=$_SESSION['username'];
       <nav class="sidebar">
          <div class="text">
             <h6>Welcome,<?php echo $user?> </h6>
-            <a href="Dashboard.php">Dashboard</a>
-            <!-- Dashboard -->
+            <a href="Dashboard.html" style="color: rgb(96, 100, 100); text-decoration: none;">Dashboard</a>
          </div>
          <ul>
             <li>

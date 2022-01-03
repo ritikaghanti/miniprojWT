@@ -1,17 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+       <link rel="stylesheet" href="sidebar.css">   <!-- Stylesheet for sidebar  -->
+      <link href="Style2.css" rel="stylesheet">    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="s_style.css">
-    <!-- <script src="https://kit.fontawesome.com/b99e6756e.js"></script> -->
-</head>
+    <link rel="stylesheet" href="s_style.css">  
+    <script src="https://kit.fontawesome.com/b99e6756e.js"></script>
+   </head>
+   <body style="background-image: url(back2.jpg);">
+      <div class="btn">
+         <span class="fas fa-bars"></span>
+      </div>
+      <nav class="sidebar">
+         <div class="text">
+            <a href="Dashboard.html" style="color: rgb(96, 100, 100); text-decoration: none;">Dashboard</a>
+         </div>
+         <ul>
+            <li>
+               <a href="#" class="feat-btn">My Notes
+               <span class="fas fa-caret-down first"></span>
+               </a>
+               <ul class="feat-show">
+                  <li><a href="#">View All Notes</a></li>
+                  <li><a href="#">Upload Notes</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="#" class="serv-btn">My Account
+               <span class="fas fa-caret-down second"></span>
+               </a>
+               <ul class="serv-show">
+                  <li><a href="#">My Profile</a></li>
+                  <li><a href="#">Edit Profile</a></li>
+               </ul>
+            </li>
+            <li><a href="#">Log Out</a></li>
+         </ul>
+      </nav>
+      <!-- Sidebar code ends here--> 
 
-<body style="background-image: url(back2.jpg);">
-    <a style="text-align: right;" href="Dashboard.php">Dashboard</a>
-    <form action="upload.php" method="POST" enctype="multipart/form-data">
+      <form action="">
         <div class="wrapper">
             <div class="left" style="background-image: url(blue.jpg);"></div>
             <div class="right">
@@ -20,34 +53,53 @@
                     <div class="info_data">
                         <div class="data">
                             <p>Title:</p>
-                            <input class="form_field" placeholder="Title of the document" required type="text" name="title" style="width: 280px;">
+                            <input class="form_field" placeholder="Title of the document" required type="text" id="title" style="width: 280px;">
                             <br><br>                          
                             <p>Description:</p>
-                            <input class="form_field" placeholder="Eg. HTML notes includes core html programs." required type="text" name="description" style="width: 280px;">
+                            <input class="form_field" placeholder="Eg. HTML notes includes core html programs." required type="text" id="year" style="width: 280px;">
                             <br><br>
                             <p>Year:</p>
-                            <input class="form_field" placeholder="Eg. Third Year " required type="text" name="year" style="width: 280px;">
+                            <input class="form_field" placeholder="Eg. Third Year " required type="text" id="year" style="width: 280px;">
                             <br><br>
                             <p>Category:</p>
-                            <select name="check">
-                                <option value='exam'>Exam</option>
-                                <option value='year'>Year</option>
-                                <option value='department'>Department</option>
-                            <input class="form_field" placeholder="Eg. " required type="text" name="category" style="width: 280px;">
+                            <input class="form_field" placeholder="Eg. " required type="text" id="year" style="width: 280px;">
                             <br><br>
                             <p>Select a file*</p><br>
                             <label for="file-upload" class="custom-file-upload">
                                 <input type="file" id="file-upload" style="color: white;">Choose file
                             </label>
-                            <input type="submit" name="submit"> 
-                           
+                            <a href="#" style="color: #5a1fe4;background-color: #83d0f3;background-size: 10%; text-align:left; margin-bottom: 0px;"> Upload </a>
+
                         <div class="back"><a href="Dashboard.html" style="color:#3897f9; ; text-align:right;">Back</a></div>
                         </div>                                                
                     </div>
                 </div>               
             </div>
         </div>
-        
-    </form>
-</body>
+      </form>
+
+
+
+
+
+
+      <!-- Script for sidebar--> 
+      <script> 
+         $('.btn').click(function(){
+           $(this).toggleClass("click");
+           $('.sidebar').toggleClass("show");
+         });
+           $('.feat-btn').click(function(){
+             $('nav ul .feat-show').toggleClass("show");
+             $('nav ul .first').toggleClass("rotate");
+           });
+           $('.serv-btn').click(function(){
+             $('nav ul .serv-show').toggleClass("show1");
+             $('nav ul .second').toggleClass("rotate");
+           });
+           $('nav ul li').click(function(){
+             $(this).addClass("active").siblings().removeClass("active");
+           });
+      </script>
+   </body>
 </html>
