@@ -30,11 +30,12 @@
   content: '\f00d';
 }
 .sidebar{
-  position: fixed;
+  position: absolute;
   width: 250px;
   height: 100%;
   left: -250px;
   background: #D5B3C3;
+  float: left;
   transition: left 0.4s ease;
 }
 .sidebar.show{

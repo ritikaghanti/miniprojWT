@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="astyle.css">
+    <!-- <script src="https://kit.fontawesome.com/b99e6756e.js"></script> -->
+    <title>profile-display</title>
+</head>
+
+<body style="background-image: url(back2.jpg);">
+    <form action="account.php" method="POST" enctype="multipart/form-data">
+
+        <div class="wrapper">
+            <div class="left">
+                <!-- <img src=" loginicon.png" alt="profile-pic">
+                <label for="file-upload" class="custom-file-upload">
+                    <input type="file" id="file-upload">Upload
+                </label> -->
+                <?php
+                //connection.php File 
+                //mysqli_connect("localhost","root",""); 
+                //mysql_select_db("test"); 
+                $localhost = "localhost"; #localhost
+                $dbusername = "root"; #username of phpmyadmin
+                $dbpassword = "";  #password of phpmyadmin
+                $dbname = "test";  #database name
+                
+                session_start();
+                #connection string
+                $conn = mysqli_connect($localhost,$dbusername,$dbpassword,$dbname); 
+                
+                $user=$_SESSION['username'];
+                //$query="select * from login WHERE username=".$user; 
+                
+                $stmt = $conn->prepare("select * from login WHERE username=?");
+                
+                $stmt->bind_param("s",$user);
+                $stmt->execute();
+                // $stmt->store_result();
+                
+                $result = $stmt->get_result();
+                //$row = $result->fetch_assoc();
+                // $result=mysqli_query($conn,$query); 
+                // $stmt->close();
+                // $conn->close();
+
+            // if($result-> num_rows > 0){
+      while($row=$result->fetch_assoc()){
+         
+      ?>
+<label for="fname" class="form_label for-left">Name</label>
+                <input class="form_field" value="<?php echo $row['name'] ?>" required type="text" name="fname">
+            
+
+                <input class="form_field" placeholder="Name" required type="text" name="dept">
+                <label for="dept" class="form_label for-left">Department</label>
+
+                <input type="submit" name="submit">
+                <!-- <a href="uploadsuccess.html">Save info</a> -->
+     
+     <?php
+            }
+//    }
+//    else{
+//    echo"0 result";
+//    }
+//    ?>
+
+                
+            </div>
+            <div class="right">
+                <div class="info">
+                    <h3>Edit My Account</h3>
+                    <div class="info_data">
+                        <div class="data">
+
+                            <input class="form_field" placeholder="Name" required type="email" name="email">
+                            <label for="email" class="form_label">Email</label>
+
+                            <input class="form_field" placeholder="Name" required type="text" name="sem">
+                            <label for="sem" class="form_label">Semester</label>
+                        </div>
+                        
+                        <div class="data">
+
+                            <input class="form_field" placeholder="Name" required type="text" name="year">
+                            <label for="year" class="form_label">Year</label>
+
+                            
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="Dashboard.php">Back</a>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </form>
+</body>
+
+</html>

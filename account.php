@@ -33,54 +33,19 @@ echo "name".$fname;
     $stmt->bind_param("ssss",$fname,$class,$email,$year);
 
 
-//     if($message == '')
-//   {
-//    $data = array(
-//     ':user_name'    => $_POST["user_name"],
-//     ':user_avatar'   => $user_avatar,
-//     ':user_birthdate'  => $_POST["user_birthdate"],
-//     ':user_gender'   => $_POST["user_gender"],
-//     ':user_address'   => $_POST["user_address"],
-//     ':user_city'    => $_POST["user_city"],
-//     ':user_zipcode'   => $_POST["user_zipcode"],
-//     ':user_state'    => $_POST["user_state"],
-//     ':user_country'   => $_POST["user_country"],
-//     ':register_user_id' => $_POST["register_user_id"]
-//    );
-
-// $query = "
-//    UPDATE register_user 
-//    SET user_name = :user_name, 
-//    user_avatar = :user_avatar, 
-//    user_birthdate = :user_birthdate, 
-//    user_gender = :user_gender, 
-//    user_address = :user_address, 
-//    user_city = :user_city, 
-//    user_zipcode = :user_zipcode, 
-//    user_state = :user_state, 
-//    user_country = :user_country 
-//    WHERE register_user_id = :register_user_id
-//    ";
-
-
-//    $query = "
-//    UPDATE login 
-//    SET  fname= fname,
-//    class = :dept,
-//    email= :email,
-//    year=:year,
-//    WHERE username=:username";
+   $query = "
+   UPDATE login 
+   SET  fname= fname,
+        class = dept,
+        email= email,
+        year=year,
+   WHERE username=username";
+   $upd = $conn->prepare("UPDATE login SET  fname=?, class=? ,email=?,year=? WHERE username=?);
+    $upd->bind_param("sssss",$fname,$class,$email,$year,$username);
    
-//    name = :fname, 
-//    class = :class, 
-//    email = :email,
-//    year = :year
-//    WHERE register_user_id = :register_user_id
-//    ";
+    $statement = $connect->prepare($query);
 
-//    $statement = $connect->prepare($query);
-
-//    $statement->execute($data);
+    $statement->execute($data);
 
     $stmt->execute();
     echo"file upload successful";

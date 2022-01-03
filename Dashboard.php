@@ -49,8 +49,8 @@ $user=$_SESSION['username'];
                <span class="fas fa-caret-down second"></span>
                </a>
                <ul class="serv-show">
-                  <li><a href="index.html">My Profile</a></li>
-                  <li><a href="edit.html">Edit Profile</a></li>
+                  <li><a href="index.php">My Profile</a></li>
+                  <li><a href="edit.php">Edit Profile</a></li>
                </ul>
             </li>
             <li><a href="main.html">Log Out</a></li>
