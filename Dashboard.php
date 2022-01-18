@@ -12,8 +12,7 @@ session_start();
 $conn = mysqli_connect($localhost,$dbusername,$dbpassword,$dbname);
 $query="select * from student"; 
 $result=mysqli_query($conn,$query); 
-$user=$_SESSION['username'];
-
+$user=$_SESSION['username']
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -32,7 +31,7 @@ $user=$_SESSION['username'];
       <nav class="sidebar">
          <div class="text">
             <h6>Welcome,<?php echo $user?> </h6>
-            <a href="Dashboard.html" style="color: rgb(96, 100, 100); text-decoration: none;">Dashboard</a>
+            <a href="Dashboard.php" style="color: rgb(96, 100, 100); text-decoration: none;">Dashboard</a>
          </div>
          <ul>
             <li>

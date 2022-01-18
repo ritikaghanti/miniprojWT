@@ -45,16 +45,32 @@ $conn = mysqli_connect($localhost,$dbusername,$dbpassword,$dbname);
 $query="select * from login"; 
 $result=mysqli_query($conn,$query); 
 $user=$_SESSION['username'];
+
             if($result-> num_rows > 0){
-      while($row=$result->fetch_assoc()){
+              while($row=$result->fetch_assoc()){
+        
          echo "<h4>".$row['name']."</h4>";
-         // while($row=mysql_fetch_array($sql)){
         
       }
    }
    else{
    echo"0 result";
    }
+
+//    $count="SELECT username FROM login where $user='username'";
+//         $result=mysqli_query($conn,$query);
+//         if($result-> num_rows > 0)
+//         {
+//             while($row=$result->fetch_assoc())
+//             {
+//             echo $row["username"];
+//             }
+//         }
+//                 else
+//         {
+//         echo $connection->error;
+//         }
+
    ?>
 
             <a href="edit.html">Edit info</a>

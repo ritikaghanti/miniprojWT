@@ -41,10 +41,10 @@ else
     $description=$_POST["description"];
     $year=$_POST["year"];
 
-
+echo $title;
     $pname= rand(1000,10000)."-".$_FILES["file"]["name"];
     $tname=$_FILES["files"]["tmp_name"];
-    $uploads_dir='uploads';
+    $uploads_dir='E:\xamppmain\htdocs\miniprojWT\uploads';
     move_uploaded_file($tname,$uploads_dir.'/'.$pname);
     //$sql="";
 
@@ -55,7 +55,7 @@ else
     $stmt->bind_param("ssss",$title,$description,$year,$pname);
     $stmt->execute();
     echo"file upload successful";
-    header('location:uploadsuccess.html');
+    // header('location:Dashboard.php');
     $stmt->close();
     $conn->close();
 }
