@@ -73,7 +73,7 @@ $user=$_SESSION['username'];
 
    ?>
 
-            <a href="edit.html">Edit info</a>
+            <a href="edit.php">Edit info</a>
         </div>
         <div class="right">
             <div class="info">
