@@ -1,62 +1,48 @@
 <?php
+// connect to the database
 $host="localhost";
 $dbUsername="root";
 $dbPassword="";
 $dbname="test";
-
 $conn= new mysqli ($host, $dbUsername, $dbPassword, $dbname);
-
-// if(isset(($_FILES['submit'])))
-// {
-// $title=$_POST["title"];
-// $description=$_POST["description"];
-// $year=$_POST["year"];
-
-
-// $pname=rand(1000,10000)."-".$_FILES["file"]["name"];
-// $tname=$_FILES["files"]["tmp_name"];
-// $uploads_dir='uploads';
-// move_uploaded_file($tname,$uploads_dir.'/'.$pname);
-// $sql="INSERT into fileupload(FileName,file) values ('$title','$pname')";
-
-// //$sql="INSERT into fileupload(FileName,description,year,file) values ('$title','$description','$year','$pname')";
-// if(mysqli_query($conn,$sql)){
-//     echo"connection successful";
-// } else{
-//     echo"connection not successful";
-// }
-// }
-// else {
-//     echo"work";
-// }
-
-
-
 if($conn->connect_error){
     die('Connection Failed : '.$conn->connect_error);
+
 }
-else
-{
+else {
     $title= $_POST["title"];
     $description=$_POST["description"];
     $year=$_POST["year"];
 
-echo $title;
-    $pname= rand(1000,10000)."-".$_FILES["file"]["name"];
-    $tname=$_FILES["files"]["tmp_name"];
-    $uploads_dir='E:\xamppmain\htdocs\miniprojWT\uploads';
-    move_uploaded_file($tname,$uploads_dir.'/'.$pname);
-    //$sql="";
+// Uploads files
+    if (isset($_POST['submit'])) { // if save button on the form is clicked
+    // name of the uploaded file
+    $filename = $_FILES['file-upload']['name'];
 
-    //$sql="INSERT into fileupload(FileName,description,year,file) values ('$title','$description','$year','$pname')";
-    //$sql="INSERT into fileupload(FileName,description,file) values ('$title','$description','$pname')";
-    //$stmt = $conn->prepare("INSERT into fileupload(FileName,file) values (?,?)");
-    $stmt = $conn->prepare("INSERT into fileupload(FileName,description,year,file) values (?,?,?,?)");
-    $stmt->bind_param("ssss",$title,$description,$year,$pname);
+    // destination of the file on the server
+    $destination = 'uploads/' . $filename;
+
+    // get the file extension
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+    // the physical file on a temporary uploads directory on the server
+    $file = $_FILES['file-upload']['tmp_name'];
+    
+    if (!in_array($extension, ['jpg', 'pdf', 'docx', 'jpeg'])) {
+        echo "You file extension must be .jpg, .pdf or .docx or .jpeg";
+    } 
+     else {
+        // move the uploaded (temporary) file to the specified destination
+        if (move_uploaded_file($file, $destination)) {
+            $stmt = $conn->prepare("INSERT into fileupload(FileName,description,year,file) values (?,?,?,?)");
+    $stmt->bind_param("ssss",$title,$description,$year,$filename);
     $stmt->execute();
     echo"file upload successful";
-    // header('location:Dashboard.php');
+    header('location:Dashboard.php');
     $stmt->close();
     $conn->close();
+    }
+    }
+    }
 }
 ?>

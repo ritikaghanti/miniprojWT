@@ -1,20 +1,3 @@
-<?php
-//connection.php File 
-//mysqli_connect("localhost","root",""); 
-//mysql_select_db("test"); 
-$localhost = "localhost"; #localhost
-$dbusername = "root"; #username of phpmyadmin
-$dbpassword = "";  #password of phpmyadmin
-$dbname = "test";  #database name
-
-session_start();
-#connection string
-$conn = mysqli_connect($localhost,$dbusername,$dbpassword,$dbname);
-$query="select * from login"; 
-$result=mysqli_query($conn,$query); 
-$user=$_SESSION['username'];
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,50 +10,42 @@ $user=$_SESSION['username'];
     <title>profile-display</title>
 </head>
 
-
-
-
 <body style="background-image: url(back2.jpg);">
     <div class="wrapper">
         <div class="left">
             <img src="loginicon.png" alt="profile-pic">
-            <?php
+
+
+<?php
 $localhost = "localhost"; #localhost
 $dbusername = "root"; #username of phpmyadmin
 $dbpassword = "";  #password of phpmyadmin
 $dbname = "test";  #database name
 
 #connection string
+session_start();
 $conn = mysqli_connect($localhost,$dbusername,$dbpassword,$dbname);
-$query="select * from login"; 
-$result=mysqli_query($conn,$query); 
 $user=$_SESSION['username'];
+$email="";
+$Year="";
+$sem="";
+// echo $user;
+$query="SELECT * from login WHERE username='$user' "; 
+$result=mysqli_query($conn,$query); 
+
 
             if($result-> num_rows > 0){
               while($row=$result->fetch_assoc()){
         
          echo "<h4>".$row['name']."</h4>";
-        
+        $email=$row['email'];
+        $Year=$row['year'];
+        $sem=$row['sem'];
       }
    }
    else{
    echo"0 result";
    }
-
-//    $count="SELECT username FROM login where $user='username'";
-//         $result=mysqli_query($conn,$query);
-//         if($result-> num_rows > 0)
-//         {
-//             while($row=$result->fetch_assoc())
-//             {
-//             echo $row["username"];
-//             }
-//         }
-//                 else
-//         {
-//         echo $connection->error;
-//         }
-
    ?>
 
             <a href="edit.php">Edit info</a>
@@ -81,19 +56,24 @@ $user=$_SESSION['username'];
                 <div class="info_data">
                     <div class="data">
                         <h4>Email</h4>
-                        <p><?php echo $row["email"] ?></p>
+                        <p><?php echo $email ?></p>
+                        <h4>Year</h4>
+                            <p><?php echo $Year ?></p>
+                            <h4>Sem</h4>
+                        <p><?php echo $sem ?></p>
                     </div>
                     <div class="data">
-                        <h4><?php echo $row["year"] ?></h4>
-                        <p><?php echo $row["sem"] ?></p>
+                        
                     </div>
+                    
                 </div>
             </div>
         </div>
     </div>
+    </div>
+</div>
 
-    </div>
-    </div>
+    
+
 </body>
-
 </html>

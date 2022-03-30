@@ -16,7 +16,7 @@ if(mysqli_num_rows($result)==1)
     $_SESSION['test']='true';
     $_SESSION['username']=$username;
     //echo "Welcome,".$_SESSION['username'];
-    header('location:Dashboard.php');
+    header('location:frontpage.php');
     // header('location:Homepage.html'); //Will have to connect to Savi's part
     echo'successful';
 }

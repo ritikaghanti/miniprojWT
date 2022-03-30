@@ -24,13 +24,20 @@ $user=$_SESSION['username']
       <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
    </head>
-   <body style="background-image: url(back2.jpg);">
+   
+   <style>
+       body{
+   background-image: url('frontpage.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+       }</style>
+   
       <div class="btn">
          <span class="fas fa-bars"></span>
       </div>
       <nav class="sidebar">
          <div class="text">
-            <h6><a href="frontpage.php" style="color: rgb(96, 100, 100); text-decoration: none;">Hello,<?php echo $user?></a> </h6>
+            <h6><a href="frontpage.php" style=" text-decoration: none;">Welcome,<?php echo $user?></a> </h6>
             <!-- <a href="Dashboard.php" style="color: rgb(96, 100, 100); text-decoration: none;">Dashboard</a> -->
          </div>
          <ul>
@@ -56,68 +63,6 @@ $user=$_SESSION['username']
          </ul>
       </nav>
       
-      <!-- <form action="./" method="get">
-         <div class="searchbar">
-             <input type="text" class="searchbar__input" name="q" placeholder="Search Notes">
-             <button type="submit" class="searchbar__button" >
-               <i class="fa fa-search"></i>
-             </button>
-         </div> 
-     </form> -->
-<!--<img src="backgroumd.jpg" width=1200 height=600 align="right" hspace=3>  -->
-
-<table class="paleBlueRows" align="right">
-   <thead>
-   <tr>
-   <th>Filename</th>
-   <th>Description</th>
-   <!-- <th>Filetype</th> -->
-   <!-- <th>Uploaded By</th> -->
-   <!-- <th>Uploaded On</th> -->
-   <th>Year</th>
-   <!-- <th>Category</th> -->
-   <th>Download Link</th>
-   </tr>
-   </thead>
-   <?php
-   $localhost = "localhost"; #localhost
-   $dbusername = "root"; #username of phpmyadmin
-   $dbpassword = "";  #password of phpmyadmin
-   $dbname = "test";  #database name
-    
-   #connection string
-   $conn = mysqli_connect($localhost,$dbusername,$dbpassword,$dbname);
-   if($conn->connect_error){
-      die('Connection Failed : '.$conn->connect_error);
-   }
-   $sql="SELECT * FROM fileupload";
-   $result=$conn->query($sql);
-   if($result-> num_rows > 0)
-   {
-      while($row=$result->fetch_assoc())
-      {
-         // while($row=mysql_fetch_array($sql)){
-         ?>
-         <tr>
-            <td><?php echo $row["FileName"] ?></td>
-            <td><?php echo $row["description"] ?></td>
-            <!-- <td><?php echo "uploaded" ?></td> -->
-            <td><?php echo $row["year"] ?></td>
-            <td><a download="<?php echo $row["file"] ?>" href=uploads/ <?php echo $row["file"] ?>"> Download </a></td>
-            
-
-       <?php  
-      }
-      echo"</table>";
-   }
-   else{
-   echo"0 result";
-   }
-   $conn->close();
-   ?>
-
-   </tr>
-   </table>
    
    <!-- <div class="dropdown">
       <button onclick="myFunction()" class="dropbtn">Filter By:</button>
